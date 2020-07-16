@@ -9,7 +9,7 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import { Vue, Component } from "vue-property-decorator";
-// import axios from "axios";
+import axios from "axios";
 
 @Component({
   components: {
@@ -17,16 +17,16 @@ import { Vue, Component } from "vue-property-decorator";
   }
 })
 export default class Home extends Vue {
-  // created() {
-  //   console.log("home");
-  //   axios.defaults.baseURL = "http://127.0.0.1:8000";
-  //   try {
-  //     //カスタムヘッダーを付与してgetリクエストを送信
-  //     const res = axios.get("api/user", { crossdomain: true });
-  //     console.log(res);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  created() {
+    console.log("home");
+    axios.defaults.baseURL = "http://127.0.0.1:8000";
+    try {
+      //カスタムヘッダーを付与してgetリクエストを送信
+      const res = axios.get("api/user");
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }
 </script>
