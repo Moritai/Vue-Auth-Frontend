@@ -67,6 +67,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { required, email } from "vuelidate/lib/validators";
+import { UserUseCases } from "@/Domain/UseCases/User/UserUseCases";
 // import axios from "axios"
 Component.registerHooks(["validations"]);
 
@@ -89,8 +90,10 @@ export default class Register extends Vue {
       console.log("バリデーションエラー");
     } else {
       console.log("submit");
+      new UserUseCases().register(this.name, this.email, this.password);
+
       // axios.post("http://127.0.0.1:8000").then(res: String){}
-      (this as any).$router.push("/login"); //submitに成功したら、"/login"パスへと遷移する。
+      // (this as any).$router.push("/login"); //submitに成功したら、"/login"パスへと遷移する。
     }
   }
 }

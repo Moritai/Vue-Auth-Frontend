@@ -8,8 +8,8 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 Vue.use(BootstrapVue);
 /* ここまで */
 // validation機能をグローバルに使用できるようにインポート
-import Vuelidate from 'vuelidate'
-Vue.use(Vuelidate) // use as a Vue plugin
+import Vuelidate from "vuelidate";
+Vue.use(Vuelidate); // use as a Vue plugin
 
 Vue.config.productionTip = false;
 

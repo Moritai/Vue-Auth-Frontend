@@ -52,7 +52,8 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { required, email } from "vuelidate/lib/validators";
-import axios from "axios";
+import { UserUseCases } from "@/Domain/UseCases/User/UserUseCases";
+// import axios from "axios";
 Component.registerHooks(["validations"]);
 
 @Component
@@ -71,14 +72,15 @@ export default class Login extends Vue {
       console.log("バリデーションエラー");
     } else {
       console.log("submit");
-      axios
-        .post("http://127.0.0.1:8000/api/login", {
-          crossdomain: true,
-          email: this.email,
-          password: this.password
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
+      new UserUseCases().login(this.email, this.password);
+      // axios
+      //   .post("http://127.0.0.1:8000/api/login", {
+      //     crossdomain: true,
+      //     email: this.email,
+      //     password: this.password
+      //   })
+      //   .then(res => console.log(res))
+      //   .catch(err => console.log(err));
     }
   }
 }
