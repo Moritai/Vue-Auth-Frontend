@@ -1,3 +1,9 @@
+module.exports = {
+  devServer: {
+    host: "127.0.0.1"
+  }
+};
+
 // module.exports = {
 //   //parallel: false,
 //   // css,jsなどのアセットはLaravelの `public` の `app` ディレクトリ配下に作成されるようにする.
